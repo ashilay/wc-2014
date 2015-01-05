@@ -1,0 +1,28 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/core-ajax/core-ajax.html">
+
+<polymer-element name="polymer-greeting"  attributes="name">
+  <template>
+
+
+    <h1>'Allo, {{ name }}!</h1>
+    <span>Update text to change the greeting.</span>
+    <input type="text" value="{{ name }}">
+
+    <!-- <core-ajax url="http://example.com/json" auto response="{{resp}}"></core-ajax> -->
+
+    <core-ajax 
+      id="ajax"
+      headers='{"X-Mashape-Key": "YDfrJkZNZHmshnlwcaNNHCOxnkgfp1ahhrDjsn7xsfDlSS6Y6B"}'
+      url="https://community-unofficial-world-cup.p.mashape.com/api/matches?apikey=kMGEIRAckCumCwruoKJ0uPZwMph5l2ou" 
+      auto 
+      response="{{resp}}">
+    </core-ajax>
+
+  </template>
+  <script>
+    Polymer('polymer-greeting', {
+      name : 'Addy'
+    });
+  </script>
+</polymer-element>
